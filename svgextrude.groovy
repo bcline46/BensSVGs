@@ -22,9 +22,9 @@ HashMap<String,ArrayList<CSG>> csgByLayers = s.extrudeLayers(10)
 // extrude just one layer to 10mm
 def holeParts = s.extrudeLayerToCSG(10,"1-holeslayer")
 // seperate holes and outsides using layers to differentiate
-def outsideParts = s.extrudeLayerToCSG(10,"2letterslayer")
+def outsideParts = s.extrudeLayerToCSG(6,"2letterslayer")
 					.difference(holeParts)
 // layers can be extruded at different depths					
-def boarderParts = s.extrudeLayerToCSG(5,"3-bottomlayer")
+def boarderParts = s.extrudeLayerToCSG(4,"3-bottomlayer")
 
 return [CSG.unionAll([boarderParts,outsideParts])]
